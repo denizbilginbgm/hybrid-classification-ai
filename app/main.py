@@ -4,7 +4,8 @@ from datetime import datetime
 from app.core import config
 from app.services.dataset_creator import DatasetCreator
 
-if __name__ == '__main__':
+
+def create_dataset_for_hybrid_classification():
     start_time = datetime.now()
 
     dataset_creator = DatasetCreator()
@@ -30,3 +31,6 @@ if __name__ == '__main__':
     print(
         f"Total runtime: {days} days {hours} hours {minutes} minutes {seconds} seconds."
     )
+
+if __name__ == '__main__':
+    create_dataset_for_hybrid_classification()
