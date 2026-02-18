@@ -87,6 +87,7 @@ class Trainer:
         if self.unknown_detector is not None:
             print("\n  Calibrating unknown detector on validation set...")
             self.unknown_detector.calibrate(val_loader, self.device, self.model)
+            self._update_best_checkpoint_with_threshold()
 
     def evaluate(self, dataloader, return_predictions: bool = False, label_mapping: Optional[dict] = None):
         """
@@ -312,3 +313,19 @@ class Trainer:
             checkpoint["unknown_detector_threshold"] = self.unknown_detector.distance_threshold
 
         torch.save(checkpoint, path)
+
+    def _update_best_checkpoint_with_threshold(self):
+        """
+        Update the best model checkpoint with the calibrated unknown detector threshold.
+
+        Called after unknown detector calibration completes, since calibration runs
+        after training and the checkpoint is written during training. Loads the existing
+        best_model.pt, injects the threshold value, and overwrites the file in place.
+
+        :return: None
+        """
+        path = os.path.join(self.train_config["checkpoint_dir"], "best_model.pt")
+        state = torch.load(path, map_location=self.device)
+        state["unknown_detector_threshold"] = self.unknown_detector.distance_threshold
+        torch.save(state, path)
+        print(f"  Checkpoint updated with threshold: {self.unknown_detector.distance_threshold:.4f}")

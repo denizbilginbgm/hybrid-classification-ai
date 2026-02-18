@@ -35,13 +35,13 @@ BASE_SQL_QUERIES_PATH = "app/services/database/sql/"
 
 ALLOWED_DOCUMENT_TYPES = {
     "Menşe Şehadetnamesi": 20,
-    #"Fatura": 18,
-    #"A.TR Dolaşım Belgesi": 16,
-    #"Çeki Listesi": 42,
-    #"Konşimento": 23,
-    #"EUR.1 Dolaşım Belgesi": 17,
-    #"EUR-MED Dolaşım Belgesi": 197,
-    #"Ceza Kararı": 13,
+    "Fatura": 18,
+    "A.TR Dolaşım Belgesi": 16,
+    "Çeki Listesi": 42,
+    "Konşimento": 23,
+    "EUR.1 Dolaşım Belgesi": 17,
+    "EUR-MED Dolaşım Belgesi": 197,
+    "Ceza Kararı": 13,
 }
 
 

@@ -145,10 +145,69 @@ def predict_single_text(text: str, model, config: dict, label_mapping: dict, dev
 if __name__ == "__main__":
     checkpoint_dir = "checkpoints/xlm_roberta_base_v1"
     text = """
-    Bu bir örnek fatura metnidir. 
-    Toplam tutar: 1500 TL
-    KDV dahil fiyat hesaplanmıştır.
-    Ödeme vadesi: 30 gün
+    CERTIFICADO DE CIRCULACIÓN DE MERCANCÍAS
+
+A.T.R. N° GA 0557478 T
+
+1. EXPORTADOR: (nombre, apellido, dirección completa, país)
+PÓL. IND. S.A.D.
+PLA. DE LLEONES DEL VALLES
+ALBANIA, 18-22
+BARCELONA, ESPAÑA
+08520 LES FRANÇOISES DEL VALLES
+
+2. DOCUMENTO DE TRANSPORTE (indicación, facultativa)
+Nº de documento de transporte (indicação, facultativa)
+
+3. DESTINATARIO: (nombre y apellidos, dirección completa, país)
+BAK AMBALT SANAYI VE 35620 BOLGESI GIGLI - IZMIR
+
+4. ASOCIACIÓN ENTRE LA COMUNIDAD EUROPEA Y TUROQA
+
+5. ESTADO DE EXPORTACION
+ESPANA
+
+6. ESTADO DE DESTINO (1)
+TUROQA
+
+7. DATOS RELATIVOS AL TRANSPORTE (indicação, facultativa)
+EKOES971236
+
+8. OBSERVACIONES
+
+9. Nº de orden
+MARCA, NUMERACIÒN, NÚMERO Y NATURALEZA DE LOS BULTOS (PARA LAS MERCEDES A GRANDE, INDIQUÉSE, SEGUN EL CASO).
+
+10. PESO BRUTO (kg), UNTA (g), etc.
+
+11. PESO BRUTO (kg), UNTA (g), etc.
+
+12. VISADO DE LA ADUANA
+DOCUMENTO DE EXPORTACION (4)
+MODELO:
+Nº:
+
+EN:
+LA JUNQUERA
+ESTADO DE EXPEDICION: ESPAÑA
+(En la junquera) 
+21-8-2025
+ANTONIO MADAL BARNEDA
+GERENTE: 40418864R
+EN: LA JUNQUERA
+21-8-2025
+
+13. DECLARACIÓN DEL EXPORTADOR
+EL ABASTO FIRMANTE DECLARA QUE LAS MERCANCÍAS ANTES-
+HORA DESCRITAS RECUENDO LAS CONDICIONES REGULADAS POR LA OTROS PARA LA OBTENCIÓN DEL PRESENTE CERTIFICADO.
+EN: LA JUNQUERA
+21-8-2025
+
+14. DOCUMENTO DE TRANSPORTE (INDICACIÓN FACULTATIVA)
+NO VENDIDO
+
+15. DECLARACIÓN DE EXPORTACION
+(No vendido)
     """
 
     # Load model
@@ -188,3 +247,7 @@ if __name__ == "__main__":
     for class_name, prob in sorted_probs:
         bar = "█" * int(prob * 50)
         print(f"  {class_name:30s} {prob:6.2%} {bar}")
+
+    print("=" * 60)
+    print("Dictionary of the result:")
+    print(result)
