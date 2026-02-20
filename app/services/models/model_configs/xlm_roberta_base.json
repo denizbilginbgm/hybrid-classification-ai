@@ -7,18 +7,18 @@
   },
   "data": {
     "stride": 256,
-    "window_pooling": "max",
+    "window_pooling": "mean",
     "test_size": 0.15,
     "val_size": 0.15,
     "random_state": 42,
     "use_class_weights": true,
     "use_minority_oversampling": true,
-    "minority_threshold": 100,
+    "minority_threshold": 200,
     "oversample_factor": 3
   },
   "training": {
     "batch_size": 8,
-    "learning_rate": 2e-5,
+    "learning_rate": 5e-5,
     "num_epochs": 10,
     "warmup_ratio": 0.1,
     "weight_decay": 0.01,

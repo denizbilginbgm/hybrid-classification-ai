@@ -38,4 +38,5 @@ if __name__ == '__main__':
     #create_dataset_for_hybrid_classification()
     df = pd.read_parquet(os.path.join(config.OUTPUTS_DIR,"02-02-2026_17-38_5027_documents.parquet"))
     doc = df.loc[df["document_id"] == "EFCA02A1-506F-4C16-BFE3-08DE3D6A6987"]
+    print(type(df["text"].iloc[0]))
     print(doc.iloc[0]["text"])
